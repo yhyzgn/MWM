@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
 
 android {
     compileSdkVersion 26
@@ -13,11 +14,21 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+
+    //开启DataBinding
+    dataBinding {
+        enabled true
+    }
+
+    lintOptions {
+        abortOnError false
     }
 }
 
@@ -28,4 +39,13 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:26.+'
     testCompile 'junit:junit:4.12'
+}
+
+publish {
+    userOrg = 'yhyzgn'
+    groupId = 'com.yhy.mvvm'
+    artifactId = 'mwm'
+    publishVersion = '1.0.0'
+    desc = 'A MVVM frame which easy to repid development.'
+    website = 'https://github.com/yhyzgn/MWMApp'
 }

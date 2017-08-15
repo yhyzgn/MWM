@@ -1,14 +1,14 @@
-package com.yhy.mwmapp.view.view;
+package com.yhy.mwmapp.view.view.activity;
 
+import android.content.Intent;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.yhy.mwm.view.view.WActivity;
 import com.yhy.mwmapp.MainBinding;
 import com.yhy.mwmapp.R;
-import com.yhy.mwmapp.view.ui.MainUI;
-import com.yhy.mwmapp.vm.MainVM;
+import com.yhy.mwmapp.view.ui.activity.MainUI;
+import com.yhy.mwmapp.vm.activity.MainVM;
 
 public class MainActivity extends WActivity<MainBinding, MainUI, MainVM> implements MainUI {
 
@@ -25,5 +25,12 @@ public class MainActivity extends WActivity<MainBinding, MainUI, MainVM> impleme
     @Override
     protected MainVM create(@Nullable Bundle savedInstanceState) {
         return new MainVM(this);
+    }
+
+    @Override
+    public void open(int flag) {
+        Intent intent = new Intent(this, FmActivity.class);
+        intent.putExtra("fm_flag", flag);
+        startActivity(intent);
     }
 }

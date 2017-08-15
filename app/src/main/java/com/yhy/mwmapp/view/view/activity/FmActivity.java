@@ -1,4 +1,4 @@
-package com.yhy.mwmapp.view.view;
+package com.yhy.mwmapp.view.view.activity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,8 +8,9 @@ import com.yhy.fmhelper.FmHelper;
 import com.yhy.mwm.view.view.WActivity;
 import com.yhy.mwmapp.FmBinding;
 import com.yhy.mwmapp.R;
-import com.yhy.mwmapp.view.ui.FmUI;
-import com.yhy.mwmapp.vm.FmVM;
+import com.yhy.mwmapp.view.ui.activity.FmUI;
+import com.yhy.mwmapp.view.view.fragment.UserFragment;
+import com.yhy.mwmapp.vm.activity.FmVM;
 
 /**
  * Created by 颜洪毅 on 2017/8/15 15:14.
@@ -32,14 +33,32 @@ public class FmActivity extends WActivity<FmBinding, FmUI, FmVM> implements FmUI
     @Override
     protected void init(@Nullable Bundle savedInstanceState) {
         mHelper = new FmHelper.Builder(this, R.id.fl_fm_container).build();
-        mArgs = new Bundle();
+        //显示Fragment
+        display();
+    }
+
+    private void display() {
+        int flag = getIntent().getIntExtra("fm_flag", 0);
+        if (flag == 1000) {
+            UserFragment fm = new UserFragment();
+            Bundle arg = new Bundle();
+            arg.putString("user_arg", "Hello MWMApp");
+            fm.setArguments(arg);
+            //打开Fragment页面
+            open(fm);
+        }
     }
 
     public void open(Fragment fm) {
-        //将参数从Activity中获取到，并传递给要展示的Fragment
-        if (null != mArgs) {
-            fm.getArguments().putAll(mArgs);
-        }
         mHelper.open(fm);
+    }
+
+    public void back() {
+        mHelper.back();
+    }
+
+    @Override
+    public void onBackPressed() {
+        back();
     }
 }

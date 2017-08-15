@@ -1,10 +1,10 @@
-package com.yhy.mwmapp.vm;
+package com.yhy.mwmapp.vm.activity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import com.yhy.mwm.vm.WVM;
-import com.yhy.mwmapp.view.ui.FmUI;
+import com.yhy.mwmapp.view.ui.activity.FmUI;
 
 /**
  * Created by 颜洪毅 on 2017/8/15 15:12.

@@ -7,4 +7,5 @@ import com.yhy.mwmapp.MainBinding;
  * Created by 颜洪毅 on 2017/8/15 14:42.
  */
 public interface MainUI extends WUI<MainBinding> {
+    void open(int flag);
 }

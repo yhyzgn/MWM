@@ -5,7 +5,7 @@ import com.yhy.mwm.model.WModel;
 /**
  * Created by 颜洪毅 on 2017/8/15 14:52.
  */
-public interface MainModel extends WModel {
+public interface UserModel extends WModel {
 
-    void loadUrl(int arg, OnStringResultListener listener);
+    void loadName(int arg, OnStringResultListener listener);
 }
