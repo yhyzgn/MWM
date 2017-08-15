@@ -1,2 +1,3 @@
 # MWM
-MVVM快速开发框架
+> `compile 'com.yhy.mvvm:mwm:1.0.0'`
+
