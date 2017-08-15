@@ -17,7 +17,7 @@ public interface WFragmentUI<B extends ViewDataBinding> extends WUI<B> {
     /**
      * 获取Fragment页面之间传递的参数
      *
-     * @return
+     * @return 携带Fragment参数的Bundle
      */
     Bundle args();
 

@@ -123,6 +123,8 @@ public abstract class WFragment<B extends ViewDataBinding, U extends WFragmentUI
      * 创建ViewModel
      * 在父类onCreateView方法中调用
      *
+     * @param inflater  布局映射解析器
+     * @param container 布局容器
      * @return ViewModel
      */
     protected abstract VM create(LayoutInflater inflater, @Nullable ViewGroup container);
@@ -132,8 +134,8 @@ public abstract class WFragment<B extends ViewDataBinding, U extends WFragmentUI
      *
      * @param savedInstanceState Fragment中保存的状态
      */
-    public void initData(@Nullable Bundle savedInstanceState){
-        if(null != mVm) {
+    public void initData(@Nullable Bundle savedInstanceState) {
+        if (null != mVm) {
             mVm.initData(savedInstanceState);
         }
     }
@@ -141,8 +143,8 @@ public abstract class WFragment<B extends ViewDataBinding, U extends WFragmentUI
     /**
      * 初始化事件
      */
-    public void initListener(){
-        if(null != mVm) {
+    public void initListener() {
+        if (null != mVm) {
             mVm.initListener();
         }
     }
